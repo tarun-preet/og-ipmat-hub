@@ -1,73 +1,100 @@
 # OG IPMAT Hub
 
-A lightweight Vite + React + TypeScript starter focused on study tools and resources for IPMAT preparation.
+A focused study hub for IPMAT preparation built with Vite, React and TypeScript. Includes study utilities, progress tracking, and curated resources to help you prepare effectively.
 
-Features
+---
 
-- Dashboard and study tools (Pomodoro, Daily Log, Goals)
-- Quant vault & formula flashcards
-- Mock score tracker and progress tracker
-- Auth-ready components (Login/Signup)
-- Reusable UI primitives and Tailwind CSS
+## Badges
 
-Tech stack
+- Build: ![build-status](https://img.shields.io/badge/build-dev-green)
+- License: ![license](https://img.shields.io/badge/license-MIT-blue)
+
+---
+
+## Features
+
+- Dashboard with daily goals and activity log
+- Pomodoro timer for focused study
+- Quant vault and formula flashcards
+- Mock score tracker and progress analytics
+- Vocabulary hub and curated resources
+- Auth-ready pages: Login and Signup
+- Reusable UI primitives (shadcn-ui + Tailwind)
+
+---
+
+## Tech stack
 
 - Vite + TypeScript
-- React
+- React 18
 - Tailwind CSS
-- shadcn-ui
+- shadcn-ui (Radix + Tailwind primitives)
 
-Quick start
+---
 
-1. Install dependencies (choose one):
+## Quickstart
 
-	npm install
-   
-	or
+Clone the repo and install dependencies:
 
-	pnpm install
+```bash
+git clone <YOUR_GIT_URL>
+cd og-ipmat-hub
+npm install
+```
 
-	or
+Run the development server:
 
-	bun install
+```bash
+npm run dev
+```
 
-2. Run the dev server:
+Build for production:
 
-	npm run dev
+```bash
+npm run build
+```
 
-	or
+Preview the production build:
 
-	pnpm dev
+```bash
+npm run preview
+```
 
-	or
+If you prefer pnpm or bun, replace `npm install` / `npm run` with `pnpm` or `bun` equivalents.
 
-	bun run dev
+---
 
-3. Build for production:
-
-	npm run build
-
-4. Preview the production build:
-
-	npm run preview
-
-Project structure (important files)
+## Project structure (high level)
 
 - `src/` — application source
-  - `components/` — UI and feature components
+  - `components/` — UI components and feature modules
   - `contexts/` — `AuthContext`, `ThemeContext`
   - `pages/` — route views (Dashboard, Login, Signup, etc.)
-  - `lib/` — utilities
+  - `lib/` — small utilities and helpers
+  - `components/ui/` — design system primitives
 - `public/` — static assets
 - `vite.config.ts`, `tailwind.config.ts`, `tsconfig.json`
 
-Contributing
+---
 
-1. Fork the repo and create a branch for your feature/fix.
-2. Open a PR with a clear description and screenshots if relevant.
+## Development tips
 
-License
+- Use `src/components/ui` for shared primitives and follow existing patterns for styling.
+- Add new routes under `src/pages` and wire them into the router in `src/main.tsx`.
+- Keep stateful logic in `contexts` or scoped hooks under `src/hooks`.
 
-MIT — add a LICENSE file if needed.
+---
 
-If you'd like, I can run the dev server to verify changes or expand the README with badges and examples.
+## Contributing
+
+1. Fork the repository and create a branch: `feature/your-feature`.
+2. Implement your changes and add tests where appropriate.
+3. Open a pull request with a clear description and screenshots if relevant.
+
+---
+
+## License
+
+This project is licensed under the MIT License (SPDX: MIT). See the `LICENSE` file in the repository for the full text and copyright information.
+
+---
