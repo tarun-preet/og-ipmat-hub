@@ -7,8 +7,7 @@ import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { CommandPalette } from "@/components/CommandPalette";
 import Dashboard from "./pages/Dashboard";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import EnterSite from "./pages/EnterSite";
 import QuantVaultPage from "./pages/QuantVaultPage";
 import VocabHubPage from "./pages/VocabHubPage";
 import ProgressPage from "./pages/ProgressPage";
@@ -19,18 +18,18 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// Protected Route wrapper
+  // Protected Route wrapper
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated } = useAuth();
 
   if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/enter" replace />;
   }
 
   return <>{children}</>;
 };
 
-// Public Route wrapper (redirect to dashboard if already logged in)
+  // Public Route wrapper (redirect to dashboard if already logged in)
 const PublicRoute = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated } = useAuth();
 
@@ -45,8 +44,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       {/* Public routes */}
-      <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
-      <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
+      <Route path="/enter" element={<PublicRoute><EnterSite /></PublicRoute>} />
 
       {/* Protected routes */}
       <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
@@ -68,8 +66,8 @@ const App = () => (
     <ThemeProvider>
       <TooltipProvider>
         <Toaster />
-        <CommandPalette />
         <BrowserRouter>
+          <CommandPalette />
           <AuthProvider>
             <AppRoutes />
           </AuthProvider>

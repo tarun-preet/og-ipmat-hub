@@ -3,8 +3,7 @@ import { User, getUser, setUser as saveUser, clearUser } from '@/lib/storage';
 
 interface AuthContextType {
   user: User | null;
-  login: (email: string, password: string, name?: string) => boolean;
-  signup: (name: string, email: string, password: string) => boolean;
+  enter: (name: string) => boolean;
   logout: () => void;
   isAuthenticated: boolean;
 }
@@ -21,25 +20,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  const login = (email: string, password: string, name?: string): boolean => {
-    // Simple localStorage-based auth (for demo purposes)
-    const savedUser = getUser();
-    if (savedUser && savedUser.email === email) {
-      setUserState(savedUser);
-      return true;
-    }
-    // If no user exists, create one (simulating first login)
-    if (!savedUser && name) {
-      const newUser: User = { name, email, createdAt: new Date().toISOString() };
-      saveUser(newUser);
-      setUserState(newUser);
-      return true;
-    }
-    return false;
-  };
-
-  const signup = (name: string, email: string, password: string): boolean => {
-    const newUser: User = { name, email, createdAt: new Date().toISOString() };
+  const enter = (name: string): boolean => {
+    if (!name || !name.trim()) return false;
+    const newUser: User = { name: name.trim(), createdAt: new Date().toISOString() };
     saveUser(newUser);
     setUserState(newUser);
     return true;
@@ -51,7 +34,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, signup, logout, isAuthenticated: !!user }}>
+    <AuthContext.Provider value={{ user, enter, logout, isAuthenticated: !!user }}>
       {children}
     </AuthContext.Provider>
   );

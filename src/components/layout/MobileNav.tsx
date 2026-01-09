@@ -90,7 +90,7 @@ export const MobileNav = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-bold text-white truncate">{user?.name}</p>
-                      <p className="text-xs text-zinc-400 truncate">{user?.email}</p>
+                      <p className="text-xs text-zinc-400 truncate">Member</p>
                     </div>
                   </div>
                   <button
