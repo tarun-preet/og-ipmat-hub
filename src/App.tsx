@@ -14,6 +14,7 @@ import VocabHubPage from "./pages/VocabHubPage";
 import ProgressPage from "./pages/ProgressPage";
 import MockScoresPage from "./pages/MockScoresPage";
 import DailyLogPage from "./pages/DailyLogPage";
+import FreeResourcesPage from "./pages/FreeResourcesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -54,6 +55,7 @@ const AppRoutes = () => {
       <Route path="/progress" element={<ProtectedRoute><ProgressPage /></ProtectedRoute>} />
       <Route path="/mock-scores" element={<ProtectedRoute><MockScoresPage /></ProtectedRoute>} />
       <Route path="/daily-log" element={<ProtectedRoute><DailyLogPage /></ProtectedRoute>} />
+      <Route path="/free-resources" element={<ProtectedRoute><FreeResourcesPage /></ProtectedRoute>} />
 
       {/* Catch-all */}
       <Route path="*" element={<NotFound />} />

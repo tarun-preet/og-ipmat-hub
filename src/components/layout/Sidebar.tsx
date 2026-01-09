@@ -6,6 +6,7 @@ import {
   CheckSquare,
   BarChart3,
   PenLine,
+  Gift,
   LogOut,
   GraduationCap,
   Sun,
@@ -22,6 +23,7 @@ const navItems = [
   { icon: CheckSquare, label: 'Progress Tracker', path: '/progress' },
   { icon: BarChart3, label: 'Mock Scores', path: '/mock-scores' },
   { icon: PenLine, label: 'Daily Log', path: '/daily-log' },
+  { icon: Gift, label: 'Free Resources', path: '/free-resources' },
 ];
 
 export const Sidebar = () => {
